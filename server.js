@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const session = require('express-session')
-// const routes = require('./routes')
+const routes = require('./routes')
 const MongoStore = require('connect-mongo')(session)
 const morgan = require('morgan')
 const cors = require('cors')
@@ -30,8 +30,8 @@ app.use(bodyParser.json())
 
 app.use(session({
     // Store the session in our DB
-    store: new MongoStore({ url: 'mongodb://localhost:27017/briqup' }),
-    secret: "verysecret",
+    store: new MongoStore({ url: process.env.MONGO_URI }),
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false, // Only create a session if a property has been added to the session
     cookie: {
@@ -48,7 +48,7 @@ app.get('/', (req, res) => {
 })
 
 
-// app.use('/api/v1/auth', routes.auth)
+app.use('/api/v1/auth', routes.auth)
 
 
 // app.use('/api/v1/', routes.api)

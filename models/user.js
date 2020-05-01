@@ -1,24 +1,29 @@
+// import mongoose
 const mongoose = require("mongoose");
 
-
+// build schema
 const UserSchema = mongoose.Schema({
-    email : {
-        type : String,
-        required : true,
-        unique : true
+    company: {
+        type: String,
+        required: [true, 'Name is required']
     },
-    company_name : {
-        type : String
+    email: {
+        type: String,
+        required: [true, 'Email is required'],
+        unique: true
     },
-    password :{
-        type : String,
-        required : true,
+    password: {
+        type: String,
+        required: [true, 'Password is required']
     },
     createdAt: {
         type: Date,
         default: Date.now
-    },
+    }
 })
 
-const User = mongoose.model('User',UserSchema );
+// model-ify the schema
+const User = mongoose.model('User', UserSchema)
+
+// export
 module.exports = User
