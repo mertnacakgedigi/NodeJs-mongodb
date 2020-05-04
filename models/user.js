@@ -19,7 +19,15 @@ const UserSchema = mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
-    }
+    },
+    requests: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Request"
+    }],
+    offers: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Offer"
+    }]
 })
 
 // model-ify the schema
