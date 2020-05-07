@@ -31,9 +31,35 @@ async function indexRequest(req,res) {
     }
 }
 
+async function profileRequest(req, res) {
+    try {
+        let user = await db.User.findById(req.params.id)
+            .populate('requests')
+           
+        res.json(user)
+    }
+    catch (err) {
+        console.log(`Index Request Error:`, err);
+        res.sendStatus(500);
+    }
+}
+
+async function singleRequest(req,res) {
+    try {
+        let request = await db.Request.findById(req.params.id)
+
+        res.json(request)
+    }
+    catch (err) {
+        console.log(`Index Request Error:`, err);
+        res.sendStatus(500);
+    }
+}
 
 
 module.exports = {
     create,
-    indexRequest
+    indexRequest,
+    profileRequest,
+    singleRequest
 }
