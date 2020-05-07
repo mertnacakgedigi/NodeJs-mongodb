@@ -8,7 +8,7 @@ async function create(req,res) {
         let newOffer = await db.Offer.create(req.body);
         let request = await db.Request.findById(req.params.id)
 
-        user.requests.push(newOffer._id);
+        user.offers.push(newOffer._id);
         await user.save();
         request.offer.push(newOffer._id)
         await request.save()

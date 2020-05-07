@@ -41,6 +41,7 @@ const register = (req, res) => {
 
                 const newUser = {
                     company: req.body.company,
+                    type : req.body.type,
                     email: req.body.email,
                     password: hash
                 }

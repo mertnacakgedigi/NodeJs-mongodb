@@ -7,6 +7,10 @@ const OfferSchema = mongoose.Schema({
         type: String,
         required: [true, 'Price is required']
     },
+    destination: {
+        type: String,
+       
+    },
     eta :{
         type: Date,
         required: [true, 'Detail is required']   
@@ -14,6 +18,10 @@ const OfferSchema = mongoose.Schema({
     user : {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
     }
     
 })
