@@ -6,7 +6,7 @@ mongoose.connect(dbUrl, {
     useNewUrlParser : true,
     useFindAndModify : false,
     useCreateIndex : true,
-    // useUnifiedTopology : true
+    useUnifiedTopology : true
 }) 
     .then(()=> console.log("MongoDB Connected .."))
     .catch((err)=> console.log(`There is an ${err}`))
