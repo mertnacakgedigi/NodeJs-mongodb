@@ -1,7 +1,7 @@
-// import mongoose
+
 const mongoose = require("mongoose");
 
-// build schema
+
 const UserSchema = mongoose.Schema({
     company: {
         type: String,
@@ -34,8 +34,7 @@ const UserSchema = mongoose.Schema({
     }],
 })
 
-// model-ify the schema
 const User = mongoose.model('User', UserSchema)
 
-// export
+
 module.exports = User
