@@ -35,6 +35,7 @@ async function profileRequest(req, res) {
     try {
         let user = await db.User.findById(req.params.id)
             .populate('requests')
+            .populate('offers')
            
         res.json(user)
     }
