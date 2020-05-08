@@ -15,5 +15,5 @@ mongoose.connect(dbUrl, {
 module.exports = {
     User : require('./Temp'),
     Request : require('./Request'),
-    Offer : require('./Offer')
+    Offer : require('./User')
 }
