@@ -31,7 +31,7 @@ const UserSchema = mongoose.Schema({
     offers: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Offer"
-    }]
+    }],
 })
 
 // model-ify the schema
