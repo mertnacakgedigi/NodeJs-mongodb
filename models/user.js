@@ -12,6 +12,10 @@ const UserSchema = mongoose.Schema({
         required: [true, 'Email is required'],
         unique: true
     },
+    type: {
+        type: String,
+        required: [true, 'Email is required'],
+    },
     password: {
         type: String,
         required: [true, 'Password is required']
@@ -19,7 +23,15 @@ const UserSchema = mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
-    }
+    },
+    requests: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Request"
+    }],
+    offers: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Offer"
+    }]
 })
 
 // model-ify the schema
