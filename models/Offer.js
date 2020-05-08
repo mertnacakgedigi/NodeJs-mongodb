@@ -22,6 +22,13 @@ const OfferSchema = mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
+    },
+    detail: {
+        type : String
+    },
+    request : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'Request'
     }
     
 })
