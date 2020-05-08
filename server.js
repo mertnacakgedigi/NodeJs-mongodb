@@ -43,7 +43,7 @@ app.use(session({
 //
 
 // Testing
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
     res.send('<h1>Testing</h1>')
 })
 
