@@ -68,10 +68,30 @@ async function singleRequest(req,res) {
     }
 }
 
+async function updateRequest(req,res) {
+    try {
+        let updatedRequest = await db.Request.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            {
+                new : true
+            }
+        )
+
+        res.json(updatedRequest)
+        
+    }
+    catch (err) {
+        console.log(`Update Request Error:`, err);
+        res.sendStatus(500);
+      }
+}
+
 
 module.exports = {
     create,
     indexRequest,
     profileRequest,
-    singleRequest
+    singleRequest,
+    updateRequest
 }
