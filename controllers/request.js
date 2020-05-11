@@ -87,11 +87,25 @@ async function updateRequest(req,res) {
       }
 }
 
+async function deleteRequest(req,res) {
+    try {  
+        let deleteRequest = await db.Request.findByIdAndDelete(req.params.id);
+        res.json(deleteRequest)
+
+    }
+
+    catch(err){
+        console.log(err)
+        res.sendStatus(500)
+    }
+}
+
 
 module.exports = {
     create,
     indexRequest,
     profileRequest,
     singleRequest,
-    updateRequest
+    updateRequest,
+    deleteRequest
 }

@@ -7,6 +7,7 @@ router.get('/request',ctrl.request.indexRequest)
 router.post('/request',ctrl.request.create)
 router.get('/request/:id',ctrl.request.singleRequest)
 router.post('/request/:id',ctrl.request.updateRequest)
+router.delete('/request/:id',ctrl.request.deleteRequest)
 
 // Profile
 
